@@ -1,5 +1,5 @@
-import generateToken from "../helper/token";
-import User from "../model/user";
+import generateToken from "../helper/token.js";
+import User from "../model/user.js";
 
 
 export const googleAuth = async (req, res) => {
@@ -11,6 +11,8 @@ export const googleAuth = async (req, res) => {
                 name, email
             })
         }
+                console.log('user -> ',user)
+
         const token = await generateToken(user._id);
         res.cookie("token", token, {
             http: true,
